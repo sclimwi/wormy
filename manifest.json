@@ -22,6 +22,12 @@
         "type": "img/png",
         "sizes": "192x192",
         "purpose": "any"
+    },
+    {
+        "src": "https://glennhartmann.github.io/wormy/icon_512.png",
+        "type": "img/png",
+        "sizes": "512x512",
+        "purpose": "any"
     }
   ],
   "start_url": "https://glennhartmann.github.io/wormy/index.html",

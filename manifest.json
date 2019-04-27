@@ -13,8 +13,8 @@
         "sizes": "128x128"
     }
   ],
-  "start_url": "/wormy/",
-  "scope": "/wormy/",
+  "start_url": "index.html",
+  "scope": ".",
   "display": "standalone",
   "orientation": "landscape",
   "background_color": "#948370",

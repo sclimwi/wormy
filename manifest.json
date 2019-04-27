@@ -19,7 +19,7 @@
     }
   ],
   "start_url": "index.html",
-  "scope": ".",
+  "scope": "/wormy/",
   "display": "standalone",
   "orientation": "landscape",
   "background_color": "#948370",

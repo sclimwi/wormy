@@ -3,25 +3,24 @@
   "short_name": "Wormy",
   "icons": [
     {
-        "src": "icon_16.png",
+        "src": "/wormy/icon_16.png",
         "type": "img/png",
         "sizes": "16x16"
     },
     {
-        "src": "icon_128.png",
+        "src": "/wormy/icon_128.png",
         "type": "img/png",
         "sizes": "128x128"
     },
     {
-        "src": "icon_144.png",
+        "src": "/wormy/icon_144.png",
         "type": "img/png",
         "sizes": "144x144"
     }
   ],
-  "start_url": "index.html",
-  "scope": "/wormy/",
+  "start_url": "/wormy/index.html",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "landscape",
   "background_color": "#948370",
   "theme_color": "#948370"
 }

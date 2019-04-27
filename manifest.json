@@ -1,0 +1,22 @@
+{
+  "name": "Wormy",
+  "short_name": "Wormy",
+  "icons": [
+    {
+        "src": "/icon_16.png",
+        "type": "img/png",
+        "sizes": "16x16"
+    },
+    {
+        "src": "/icon_128.png",
+        "type": "img/png",
+        "sizes": "128x128"
+    }
+  ],
+  "start_url": "/wormy/",
+  "scope": "/wormy/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#948370",
+  "theme_color": "#948370"
+}

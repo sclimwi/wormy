@@ -16,6 +16,11 @@
         "src": "/wormy/icon_144.png",
         "type": "img/png",
         "sizes": "144x144"
+    },
+    {
+        "src": "/wormy/icon_192.png",
+        "type": "img/png",
+        "sizes": "192x192"
     }
   ],
   "start_url": "/wormy/index.html",

@@ -235,7 +235,8 @@ wormy.Client = function() {
       this.showDialog($('loading'));
       var self = this;
       var localConnection = {
-        addEventListener: function(type, callback) {}
+        addEventListener: function(type, callback) {},
+        send: function(msg) {},
       };
 
       if (lobbyApi) {

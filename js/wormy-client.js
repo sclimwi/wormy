@@ -23,7 +23,7 @@ wormy.Client = function() {
       {'now': function() { return (new Date()).getTime(); }};
 
   var lobbyApi = null;
-  if (lobby) {
+  if (typeof lobby != 'undefined') {
     lobbyApi = new lobby.LobbyApi(window.location.origin.endsWith('.github.io') ?
         'wss://flack.undo.it' : window.location.origin.replace(/^http/, 'ws'));
   } else {

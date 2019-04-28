@@ -21,7 +21,15 @@ var urlsToCache = [
   'js/wormy-client.js',
   'js/wormy-common.js',
   'js/wormy-levels.js',
-  'js/wormy-server.js'
+  'js/wormy-server.js',
+
+  // This is an external dependency, which is a little messy unless we can
+  // enable CORS (not sure if that's possible with github hosting). Basically
+  // the service worker has no way of knowing when the external js file has
+  // been updated, so it will keep serving the cached one, even if it becomes
+  // stale. When updating lobby, we'll have to update the CACHE_VERSION in this
+  // file to make the clients refresh their cache.
+  'https://flackr.github.io/lobby/client/lobby.js'
 ];
 
 // install event: is run on first pageload or whenever sw.js is modified. Note

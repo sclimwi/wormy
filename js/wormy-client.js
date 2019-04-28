@@ -26,6 +26,8 @@ wormy.Client = function() {
   if (lobby) {
     lobbyApi = new lobby.LobbyApi(window.location.origin.endsWith('.github.io') ?
         'wss://flack.undo.it' : window.location.origin.replace(/^http/, 'ws'));
+  } else {
+    console.log("Could not connect to lobby - playing offline.")
   }
 
   var pageHidden = function() {

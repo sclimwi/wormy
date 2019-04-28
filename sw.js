@@ -5,7 +5,7 @@
 
 var CACHE_VERSION = 1; // update this value when updating the app
 var CACHE_NAME = 'wormy-cache-v' + CACHE_VERSION;
-var urlsToCache = [
+var localURLsToCache = [
   '.',
   'index.html',
   'favicon.ico',
@@ -23,6 +23,9 @@ var urlsToCache = [
   'js/wormy-levels.js',
   'js/wormy-server.js'
 ];
+var externalURLsToCache = [
+  'https://flackr.github.io/lobby/client/lobby.js'
+]
 
 // install event: is run on first pageload or whenever sw.js is modified. Note
 // that 'installed' service workers are not 'activated' until all current pages
@@ -33,7 +36,7 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Opened cache "' + CACHE_NAME + '"');
-        return cache.addAll(urlsToCache);
+        return cache.addAll(localURLsToCache.concat(externalURLsToCache));
       })
   );
 });
@@ -45,6 +48,35 @@ self.addEventListener('install', function(event) {
 // time.
 self.addEventListener('fetch', function(event) {
   event.respondWith(
+   if (externalURLsToCache.includes(event.request.url)) {
+      // Try to fetch the external response first.
+      fetch(event.request).then(function(response) {
+        // Check if we received a valid response
+        if (response && response.status == 200) {
+	  // IMPORTANT: Clone the response. A response is a stream
+	  // and because we want the browser to consume the respons
+          // as well as the cache consuming the response, we need
+          // to clone it so we have two streams.
+          var responseToCache = response.clone();
+          caches.open(CACHE_NAME).then(function(cache) {
+	    console.log('Opened cache for "' + event.request.url + '"')
+            cache.put(event.request, responseToCache);
+          });
+          return response;
+        }  
+
+	// Use cache if fetch does not succeed. 
+	return caches.match(event.request).then(function(cachedResponse) {
+          // Cache hits.
+	  if (cachedResponse) {
+            console.log('Returning cached result for "' + event.request.url + '"')
+            return `      }
+          return response;
+	});
+
+      });
+    }
+    else {	
     caches.match(event.request)
       .then(function(response) {
         // Cache hit - return response
@@ -76,6 +108,7 @@ self.addEventListener('fetch', function(event) {
           }
         );
       })
+}
     );
 });
 

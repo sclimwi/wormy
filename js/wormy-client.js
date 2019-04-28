@@ -232,19 +232,21 @@ wormy.Client = function() {
     },
 
     createGame: function() {
-      if (!lobbyApi) {
-          return;
-      }
-
       this.showDialog($('loading'));
       var self = this;
-      var host = lobbyApi.createSession('wormy');
-      window.server = new wormy.Server(host, $('game-name').value, $('game-speed').value / 10);
+      var localConnection = null;
 
-      host.addEventListener('open', function(id) {
-        window.location.hash = id;
-      });
-      this.connectClient(host.createLocalConnection());
+      if (lobbyApi) {
+        var host = lobbyApi.createSession('wormy');
+        window.server = new wormy.Server(host, $('game-name').value, $('game-speed').value / 10);
+
+        host.addEventListener('open', function(id) {
+          window.location.hash = id;
+        });
+
+        localConnection = host.createLocalConnection();
+      }
+      this.connectClient(localConnection);
     },
 
     colourizeImageData: function(data, oldColour, colour) {

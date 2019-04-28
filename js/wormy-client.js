@@ -234,7 +234,9 @@ wormy.Client = function() {
     createGame: function() {
       this.showDialog($('loading'));
       var self = this;
-      var localConnection = null;
+      var localConnection = {
+        addEventListener: function(x, y) {}
+      };
 
       if (lobbyApi) {
         var host = lobbyApi.createSession('wormy');

@@ -3,7 +3,7 @@
 // Most of the code in this file is copied or heavily derived from
 // https://developers.google.com/web/fundamentals/primers/service-workers/
 
-var CACHE_VERSION = 1; // update this value when updating the service worker
+var CACHE_VERSION = 1; // update this value when updating the app
 var CACHE_NAME = 'wormy-cache-v' + CACHE_VERSION;
 var urlsToCache = [
   '.',
@@ -13,6 +13,8 @@ var urlsToCache = [
   'icon_16.png',
   'icon_128.png',
   'icon_144.png',
+  'icon_192.png',
+  'icon_512.png',
   'css/wormy.css',
   'gfx/wormy.png',
   'js/main.js',
@@ -36,7 +38,7 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// fetch event: when the service worker is active, this event intercepts
+// fetch event: when the service worker is active, this event intercepts all
 // network fetch attempts. We first check if the URL requested is already in
 // our cache, and if it is, we return it directly. If not, then we proceed to
 // actually do a network fetch, then we cache the result of the fetch for next

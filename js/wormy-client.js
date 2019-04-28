@@ -22,8 +22,11 @@ wormy.Client = function() {
   window.performance = window.performance ||
       {'now': function() { return (new Date()).getTime(); }};
 
-  var lobbyApi = new lobby.LobbyApi(window.location.origin.endsWith('.github.io') ?
-      'wss://flack.undo.it' : window.location.origin.replace(/^http/, 'ws'));
+  var lobbyApi = null;
+  if (lobby) {
+    lobbyApi = new lobby.LobbyApi(window.location.origin.endsWith('.github.io') ?
+        'wss://flack.undo.it' : window.location.origin.replace(/^http/, 'ws'));
+  }
 
   var pageHidden = function() {
     return document.hidden ||
@@ -227,6 +230,10 @@ wormy.Client = function() {
     },
 
     createGame: function() {
+      if (!lobbyApi) {
+          return;
+      }
+
       this.showDialog($('loading'));
       var self = this;
       var host = lobbyApi.createSession('wormy');
@@ -652,6 +659,10 @@ wormy.Client = function() {
     },
 
     connectGame: function(id) {
+      if (!lobbyApi) {
+          return;
+      }
+
       this.showDialog($('loading'));
       window.location.hash = id;
       var self = this;

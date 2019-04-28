@@ -4,28 +4,28 @@
   "icons": [
     {
         "src": "https://glennhartmann.github.io/wormy/icon_16.png",
-        "type": "img/png",
+        "type": "image/png",
         "sizes": "16x16"
     },
     {
         "src": "https://glennhartmann.github.io/wormy/icon_128.png",
-        "type": "img/png",
+        "type": "image/png",
         "sizes": "128x128"
     },
     {
         "src": "https://glennhartmann.github.io/wormy/icon_144.png",
-        "type": "img/png",
+        "type": "image/png",
         "sizes": "144x144"
     },
     {
         "src": "https://glennhartmann.github.io/wormy/icon_192.png",
-        "type": "img/png",
+        "type": "image/png",
         "sizes": "192x192",
         "purpose": "any"
     },
     {
         "src": "https://glennhartmann.github.io/wormy/icon_512.png",
-        "type": "img/png",
+        "type": "image/png",
         "sizes": "512x512",
         "purpose": "any"
     }

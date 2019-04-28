@@ -47,8 +47,8 @@ self.addEventListener('install', function(event) {
 // actually do a network fetch, then we cache the result of the fetch for next
 // time.
 self.addEventListener('fetch', function(event) {
-  event.respondWith(
-   if (externalURLsToCache.includes(event.request.url)) {
+  if (externalURLsToCache.includes(event.request.url)) {
+    event.respondWith(
       // Try to fetch the external response first.
       fetch(event.request).then(function(response) {
         // Check if we received a valid response
@@ -70,13 +70,12 @@ self.addEventListener('fetch', function(event) {
           // Cache hits.
 	  if (cachedResponse) {
             console.log('Returning cached result for "' + event.request.url + '"')
-            return `      }
+	    return cachedResponse;
+          }
           return response;
 	});
-
-      });
-    }
-    else {	
+  else {
+  event.respondWith(
     caches.match(event.request)
       .then(function(response) {
         // Cache hit - return response
@@ -108,8 +107,8 @@ self.addEventListener('fetch', function(event) {
           }
         );
       })
-}
     );
+}
 });
 
 // activate event: this is called when the service worker is installed AND the

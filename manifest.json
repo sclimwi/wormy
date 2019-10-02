@@ -26,6 +26,36 @@
         "src": "icon_512.png",
         "type": "image/png",
         "sizes": "512x512"
+    },
+    {
+        "src": "icon_28_maskable.png",
+        "type": "image/png",
+        "sizes": "28x28",
+        "purpose": "maskable"
+    },
+    {
+        "src": "icon_221_maskable.png",
+        "type": "image/png",
+        "sizes": "221x221",
+        "purpose": "maskable"
+    },
+    {
+        "src": "icon_249_maskable.png",
+        "type": "image/png",
+        "sizes": "249x249",
+        "purpose": "maskable"
+    },
+    {
+        "src": "icon_332_maskable.png",
+        "type": "image/png",
+        "sizes": "332x332",
+        "purpose": "maskable"
+    },
+    {
+        "src": "icon_885_maskable.png",
+        "type": "image/png",
+        "sizes": "885x885",
+        "purpose": "maskable"
     }
   ],
   "start_url": "index.html",

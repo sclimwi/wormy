@@ -34,7 +34,7 @@ var urlsToCache = [
   // been updated, so it will keep serving the cached one, even if it becomes
   // stale. When updating lobby, we'll have to update the CACHE_VERSION in this
   // file to make the clients refresh their cache.
-  'https://flackr.github.io/lobby/client/lobby.js'
+  'https://glennhartmann.github.io/lobby/client/lobby.js'
 ];
 
 // install event: is run on first pageload or whenever sw.js is modified. Note

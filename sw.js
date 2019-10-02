@@ -3,7 +3,7 @@
 // Most of the code in this file is copied or heavily derived from
 // https://developers.google.com/web/fundamentals/primers/service-workers/
 
-var CACHE_VERSION = 1; // update this value when updating the app
+var CACHE_VERSION = 2; // update this value when updating the app
 var CACHE_NAME = 'wormy-cache-v' + CACHE_VERSION;
 var urlsToCache = [
   '.',
@@ -15,6 +15,11 @@ var urlsToCache = [
   'icon_144.png',
   'icon_192.png',
   'icon_512.png',
+  'icon_28_maskable.png',
+  'icon_221_maskable.png',
+  'icon_249_maskable.png',
+  'icon_332_maskable.png',
+  'icon_885_maskable.png',
   'css/wormy.css',
   'gfx/wormy.png',
   'js/main.js',
